@@ -1,0 +1,39 @@
+.container{
+    margin-top: 5%;
+    width: 95%;
+}
+.navbar_color {
+    color: #1C2936;
+    font-weight: bold;
+}
+#header_home {
+    /*display: block;*/
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+}
+.center_image, #header_home h1 {
+    display: block;
+    margin: 0 auto;
+    width: 95%;
+}
+.center_image {
+    width: 30%;
+    margin-top: 1.5em;
+}
+.row{
+    width: 60%;
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+    padding: .5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.row img{
+    background-color: lightgrey;
+}
+.row img:hover{
+    opacity: .95;
+}

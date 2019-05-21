@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workout Progrm - {% block title %}{% endblock title %} </title>
+    {% load static %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--<link rel="stylesheet" type="text/css" href="main.css"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'workout/css/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'workout/css/main.css' %}">
+</head>
+
+
+<body>
+<!--Navbar-->
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand navbar_color" href="#">Spiritual Strength Academy</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active navbar_color"><a href="#">Home</a></li>
+            <li class="navbar_color"><a href="#">Clients</a></li>
+            <li class="navbar_color"><a href="#">Workouts</a></li>
+            <li class="navbar_color"><a href="#">New Program</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="navbar_color"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li class="navbar_color"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
