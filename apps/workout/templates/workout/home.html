@@ -1,4 +1,6 @@
 {% extends 'workout/template.html' %}
+
+
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
@@ -9,10 +11,12 @@
     <h1>Welcome To Spiritual Strength Academy Workout Creator</h1>
     <img src="{% static 'workout/images/SSA_image.png' %}" alt="SSA Logo" class="center_image">
 </div>
-
     <img src="{% static 'workout/images/barbell_screen_divider.svg' %}" alt="Divider" id="bar_bell">
 <body>
-
+<h3>Once logged in all buttons becomes available to view pre-build database of workouts as well as to
+    add your own. You can also search workouts by body section, specific muscle, or workout name.
+    You will be able to add your clients to the database and create custom workouts for each day
+    of the week and email your created document in a nicely formated email.</h3>
 <div class="row">
     <div class="col-sm-6"><img src="{% static 'workout/images/button_create-new-workout.png' %}"></div>
     <div class="col-sm-6"><img src="{% static 'workout/images/button_create-new-client.png' %}"></div>

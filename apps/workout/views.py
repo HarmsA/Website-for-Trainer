@@ -4,8 +4,10 @@ from .models import *
 
 # Create your views here.
 def index(request):
+    my_template = 'workout/template.html'
+
     context = {
-        'title': 'Home',
+        'title': 'Intro',
     }
     return render(request, 'workout/home.html', context)
 
@@ -22,15 +24,49 @@ def register(request):
     return render(request, 'workout/register.html')
 
 def login_verify(request):
-    print(request.POST)
-    if request.method =="POST":
+    if request.method =="POST" and Trainer.objects.trainerLoginValidation(request.POST):
+        trainer = Trainer.objects.get(email=request.POST['email'])
+        request.session['trainer_id'] = trainer.id
+        print(request.session['trainer_id'])
         print('*'*50)
-        print(request.POST)
-    return redirect('/index')
+        return redirect('/index', request.session['trainer_id'])
+    else:
+        error = "Email or Password is invalid."
+        messages.error(request, error)
+        return redirect('/login')
 
 def register_verify(request):
-    print(request.POST)
+    print(request.method)
+    print(request.POST['fname'])
+    print('*'*50)
     if request.method =="POST":
-        print('*'*50)
-        print(request.POST)
+        errors = Trainer.objects.trainerRegisterValidation(request.POST)
+        if errors:
+            for error in errors:
+                messages.error(request, error)
+        else:
+            trainer = Trainer.objects.createTrainer(request.POST)
+            request.session['trainer_id'] = trainer.id
+            return redirect('/index')
+    else:
+        return redirect('/register')
+    return redirect('/register')
+
+def create_client(request):
+    pass
+
+def client_search(request):
+    pass
+
+def create_workout(request):
+    pass
+
+def workout_search(request):
+    pass
+
+def create_program(request):
+    pass
+
+def logout(request):
+    request.session.clear()
     return redirect('/index')
