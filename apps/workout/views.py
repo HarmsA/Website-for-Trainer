@@ -52,20 +52,55 @@ def register_verify(request):
         return redirect('/register')
     return redirect('/register')
 
+# ---------Clients----------------
 def create_client(request):
     pass
 
 def client_search(request):
     pass
 
-def create_workout(request):
+def edit_client(request):
     pass
+
+def delete_client(request):
+    pass
+
+# ---------Workout----------------
+def create_workout(request):
+    context = {
+        'title': 'Create Workout'
+    }
+    return render(request, 'workout/create_workout.html', context)
+
 
 def workout_search(request):
     pass
 
-def create_program(request):
+def workout_verify(request):
     pass
+
+def edit_workout(request):
+    pass
+
+def delete_workout(request):
+    pass
+
+# --------Programs---------------------
+def create_program(request):
+    context = {
+        'title': 'Create Program'
+    }
+    return render(request, 'workout/create_workout.html', context)
+
+
+def edit_program(request):
+    pass
+
+def delete_program(request):
+    pass
+
+
+
 
 def logout(request):
     request.session.clear()

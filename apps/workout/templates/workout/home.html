@@ -18,7 +18,7 @@
     You will be able to add your clients to the database and create custom workouts for each day
     of the week and email your created document in a nicely formated email.</h3>
 <div class="row">
-    <div class="col-sm-6"><img src="{% static 'workout/images/button_create-new-workout.png' %}"></div>
+    <div class="col-sm-6"><a href="{% url 'workout:create_workout' %}"><img src="{% static 'workout/images/button_create-new-workout.png' %}"></a></div>
     <div class="col-sm-6"><img src="{% static 'workout/images/button_create-new-client.png' %}"></div>
 </div>
 <div class="row">
