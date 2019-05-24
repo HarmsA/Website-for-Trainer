@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcd08eb3-0a16-41cf-b545-a709e0fcaa3e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/workout/templates/workout/create_workout.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/workout/templates/workout/create_workout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/workout/templates/workout/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/workout/templates/workout/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/workout/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/workout/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/workout/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/workout/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/workout/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/workout/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/workout/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/workout/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.46934462">
+    <splitter split-orientation="horizontal" split-proportion="0.50147206">
       <split-first>
         <leaf>
           <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
@@ -27,11 +27,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/apps/workout/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="643">
-                  <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+                <state relative-caret-position="112">
+                  <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#45#0" expanded="true" />
                   </folding>
@@ -39,7 +39,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="create_workout.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="create_workout.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/apps/workout/templates/workout/create_workout.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="531">
@@ -48,15 +48,27 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/apps/workout/admin.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="96">
+                  <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+                  <folding>
+                    <element signature="e#0#32#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/apps/workout/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="658">
-                  <caret line="121" column="15" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="15" />
+                <state relative-caret-position="935">
+                  <caret line="107" column="30" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                     <element signature="e#590#817#0" />
@@ -84,7 +96,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/apps/workout/urls.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="416">
@@ -143,7 +155,6 @@
         <option value="$PROJECT_DIR$/apps/workout/templates/workout/template.html" />
         <option value="$PROJECT_DIR$/apps/workout/templates/workout/login.html" />
         <option value="$PROJECT_DIR$/apps/workout/templates/workout/register.html" />
-        <option value="$PROJECT_DIR$/apps/workout/models.py" />
         <option value="$PROJECT_DIR$/apps/workout/templates/workout/search_for_workout.html" />
         <option value="$PROJECT_DIR$/apps/workout/templates/workout/create_client.html" />
         <option value="$PROJECT_DIR$/apps/workout/templates/workout/client_search.html" />
@@ -152,8 +163,10 @@
         <option value="$PROJECT_DIR$/apps/workout/templates/workout/logged_in_template.html" />
         <option value="$PROJECT_DIR$/apps/workout/templates/workout/home.html" />
         <option value="$PROJECT_DIR$/apps/workout/urls.py" />
-        <option value="$PROJECT_DIR$/apps/workout/views.py" />
         <option value="$PROJECT_DIR$/apps/workout/templates/workout/create_workout.html" />
+        <option value="$PROJECT_DIR$/apps/workout/admin.py" />
+        <option value="$PROJECT_DIR$/apps/workout/models.py" />
+        <option value="$PROJECT_DIR$/apps/workout/views.py" />
       </list>
     </option>
   </component>
@@ -177,7 +190,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1272" />
     <option name="y" value="-28" />
     <option name="width" value="1696" />
@@ -317,7 +330,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1272" y="-28" width="1696" height="1026" extended-state="6" />
+    <frame x="1272" y="-28" width="1696" height="1026" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -468,18 +481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/workout/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="658">
-          <caret line="121" column="15" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <element signature="e#590#817#0" />
-            <element signature="e#1840#2230#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/workout/templates/workout/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -497,12 +498,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/workout/views.py">
+    <entry file="file://$PROJECT_DIR$/apps/workout/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+        <state relative-caret-position="96">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/workout/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="107" column="30" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#590#817#0" />
+            <element signature="e#1840#2230#0" />
           </folding>
         </state>
       </provider>
@@ -511,6 +524,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="531">
           <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/workout/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

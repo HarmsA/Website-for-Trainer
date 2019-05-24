@@ -4,15 +4,15 @@ import re
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 
-DAYS_OF_WEEK = (
-    (0, 'Monday'),
-    (1, 'Tuesday'),
-    (2, 'Wednesday'),
-    (3, 'Thursday'),
-    (4, 'Friday'),
-    (5, 'Saturday'),
-    (6, 'Sunday'),
-)
+DAYS_OF_WEEK = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+]
 
 class WorkoutManager(models.Manager):
     def trainerLoginValidation(self, form):
@@ -96,7 +96,7 @@ class Trainer(models.Model):
     objects = WorkoutManager()
 
 class Client(models.Model):
-    trainer = models.OneToOneField(Trainer, related_name='clients')
+    trainer = models.ForeignKey(Trainer, related_name='clients')
     fname = models.CharField(max_length=255)
     lname = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
@@ -107,19 +107,16 @@ class Client(models.Model):
     zip = models.IntegerField(blank=True)
     objects = WorkoutManager()
 
-
-class Workout_Day(models.Model):
-    day = models.CharField(max_length=1, choices=DAYS_OF_WEEK)
-    client = models.ManyToManyField(Client, related_name='workout_day')
-    objects = WorkoutManager()
-
-
 class Workout(models.Model):
-    workout_day = models.ManyToManyField(Workout_Day, related_name='workouts')
     body_part = models.CharField(max_length=255)
     muscle_group = models.CharField(max_length=255)
     name_of_workout = models.CharField(max_length=255)
     description = models.TextField()
     objects = WorkoutManager()
 
+class Workout_Day(models.Model):
+    day = models.CharField(max_length=10)
+    client = models.ManyToManyField(Client, related_name='workout_day')
+    workouts = models.ManyToManyField(Workout, related_name='workouts')
+    objects = WorkoutManager()
 

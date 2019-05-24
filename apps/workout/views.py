@@ -5,7 +5,7 @@ from .models import *
 # Create your views here.
 def index(request):
     my_template = 'workout/template.html'
-
+    
     context = {
         'title': 'Intro',
     }
