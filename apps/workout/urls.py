@@ -10,8 +10,9 @@ urlpatterns = [
     url(r'^register/$', views.register, name='register'),
     url(r'^register_verify/$', views.register_verify, name='register_verify'),
 
-    url(r'^create_client/(?P<trainer_id>\d)/$', views.create_client, name='create_client'),
-    url(r'^client_search/(?P<trainer_id>\d)/$', views.client_search, name='client_search'),
+    url(r'^create_client_form/$', views.create_client_form, name='create_client_form'),
+    url(r'^client_verify/$', views.client_verify, name='client_verify'),
+    url(r'^client_search/$', views.client_search, name='client_search'),
     url(r'^delete_client/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.delete_client, name='delete_client'),
     url(r'^edit_client/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.delete_client, name='delete_client'),
 

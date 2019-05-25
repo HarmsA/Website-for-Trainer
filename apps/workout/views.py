@@ -5,7 +5,7 @@ from .models import *
 # Create your views here.
 def index(request):
     my_template = 'workout/template.html'
-    
+
     context = {
         'title': 'Intro',
     }
@@ -53,8 +53,34 @@ def register_verify(request):
     return redirect('/register')
 
 # ---------Clients----------------
-def create_client(request):
-    pass
+def create_client_form(request):
+    if 'trainer_id' not in request.session:
+        return redirect('/login')
+    current_trainer = Trainer.objects.get(id = request.session['trainer_id'])
+    context = {
+        'trainers':current_trainer,
+        'title': "Create Client",
+        'created_client': False
+    }
+    return render(request, 'workout/create_client_form.html', context)
+
+def client_verify(request):
+    if request.method=='POST':
+        errors = Client.objects.clientValidation(request.POST)
+        if errors:
+            for error in errors:
+                messages.error(request, error)
+        else:
+            current_trainer = Trainer.objects.get(id=request.session['trainer_id'])
+            created_client = Client.objects.createClient(request.POST, current_trainer)
+            context = {
+                'trainers': current_trainer,
+                'title': "Create Client",
+                'created_client': created_client
+            }
+            return render(request, 'workout/create_client_form.html', context)
+
+    return redirect("/create_client_form")
 
 def client_search(request):
     pass

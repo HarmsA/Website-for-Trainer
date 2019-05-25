@@ -69,8 +69,37 @@ class WorkoutManager(models.Manager):
 
     def clientValidation(self, form):
         errors = []
-
+        if len(form['fname'])<1:
+            errors.append("Trainer's First name is required")
+        if len(form['lname'])<1:
+            errors.append("Trainer's Last name is required")
+        if not EMAIL_REGEX.match(form['email']):
+            errors.append("Must be a valid email")
+        email_list = self.filter(email=form['email'])
+        if len(email_list)>0:
+            errors.append("Email already in use")
+        if len(form['address'])<1:
+            errors.append("Address Required")
+        if len(form['city'])<1:
+            errors.append("City Required")
+        if len(form['state'])<1:
+            errors.append("State Required")
+        if len(form['zip'])<1:
+            errors.append("Zip Code Required")
         return errors
+
+    def createClient(self, form, trainer):
+        client = self.create(
+            trainer=trainer,
+            fname=form['fname'],
+            lname=form['lname'],
+            email=form['email'],
+            address=form['address'],
+            city=form['city'],
+            state=form['state'],
+            zip=form['zip'],
+        )
+        return client
 
     def dayValidation(self, form):
         errors = []
