@@ -13,10 +13,13 @@ urlpatterns = [
     url(r'^create_client_form/$', views.create_client_form, name='create_client_form'),
     url(r'^client_verify/$', views.client_verify, name='client_verify'),
     url(r'^client_search/$', views.client_search, name='client_search'),
+    url(r'^all_clients_search/$', views.all_clients_search, name='all_clients_search'),
+
+    url(r'^client_name_search/$', views.client_name_search, name='client_name_search'),
     url(r'^delete_client/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.delete_client, name='delete_client'),
     url(r'^edit_client/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.delete_client, name='delete_client'),
 
-    url(r'^create_program/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.create_program, name='create_program'),
+    url(r'^create_program/(?P<client_id>\d)/$', views.create_program, name='create_program'),
     url(r'^delete_program/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.create_program, name='create_program'),
     url(r'^edit_program/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.create_program, name='create_program'),
 

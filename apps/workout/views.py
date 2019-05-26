@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages         #imports flash messages
 from .models import *
+import re
 
 # Create your views here.
 def index(request):
@@ -9,6 +10,10 @@ def index(request):
     context = {
         'title': 'Intro',
     }
+    if 'trainer_id' in request.session:
+        trainer = Trainer.objects.get(id = request.session['trainer_id'])
+        context.update({'trainer':trainer})
+        return render(request, 'workout/logged_in_home.html', context)
     return render(request, 'workout/home.html', context)
 
 def login(request):
@@ -83,7 +88,64 @@ def client_verify(request):
     return redirect("/create_client_form")
 
 def client_search(request):
-    pass
+    if 'trainer_id' in request.session:
+        context = {
+            'title': 'Client Search',
+        }
+        return render(request, 'workout/client_search.html', context)
+
+def client_name_search(request):
+    if request.method == "POST":
+        stripped_name = request.POST['name'].strip()
+        stripped_name = stripped_name.lower()
+        alphabet_lower = re.compile('[a-z]')
+        fname=''
+        lname=''
+        first = True
+        last = False
+        name_list = list(stripped_name)
+        while name_list:
+            try:
+                ''' Searching to see if the clients input is all alphabetic and lower.
+                if there is a space, first name is over and last name starts.
+                '''
+                if alphabet_lower.search(name_list[0]) and first:
+                    fname = fname +name_list[0]
+                    print(name_list.pop(0))
+                else:
+                    print(name_list.pop(0))
+                    first=False
+                    last = True
+                if alphabet_lower.search(name_list[0]) and last:
+                    lname = lname + name_list[0]
+
+            except IndexError:
+                break
+
+            '''Query for any option. Both first and last name, all users with first name
+            and all users with last name if. Last name is only searched if nothing is found 
+            during the first name search.'''
+        if len(fname)>=1 and len(lname)>=1:
+            client = Client.objects.filter(fname=fname.capitalize(), lname=lname.capitalize())
+            # print("In both", client)
+        elif len(fname)>=1 and len(lname)==0:
+            client = Client.objects.filter(fname=fname.capitalize())
+            # print('in fname', client)
+            if not client.exists():
+                client = Client.objects.filter(lname=fname.capitalize())
+                # print('lname', client)
+        context = {
+            'client':client,
+        }
+        return render(request, 'workout/client_search.html', context)
+
+def all_clients_search(request):
+    client = Client.objects.all()
+    context = {
+        'client':client,
+    }
+    return render(request, 'workout/client_search.html', context)
+
 
 def edit_client(request):
     pass
