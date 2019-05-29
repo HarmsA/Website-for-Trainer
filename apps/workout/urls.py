@@ -17,7 +17,8 @@ urlpatterns = [
 
     url(r'^client_name_search/$', views.client_name_search, name='client_name_search'),
     url(r'^delete_client/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.delete_client, name='delete_client'),
-    url(r'^edit_client/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.delete_client, name='delete_client'),
+    url(r'^edit_client/(?P<client_id>\d)/$', views.edit_client, name='edit_client'),
+    url(r'^client_edit_verify/$', views.client_edit_verify, name='client_edit_verify'),
 
     url(r'^create_program/(?P<client_id>\d)/$', views.create_program, name='create_program'),
     url(r'^delete_program/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.create_program, name='create_program'),

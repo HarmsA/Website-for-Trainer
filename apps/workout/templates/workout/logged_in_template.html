@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Workout Progrm - {% block title %}{% endblock title %} </title>
     {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -27,7 +28,10 @@
             <a class="navbar-brand navbar_color" href="https://www.ssamidwest.com/">Spiritual Strength Academy</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active navbar_color"><a href="{% url 'workout:index' %}">Home</a></li>
+            {% url 'index' as index %}
+            {% url 'client_search' as client_search %}
+            {% url 'workout_search' as workout_search %}
+            <li {% if request.path == index %} class="navbar_color, active"{% else %} class="navbar_color"{% endif %}><a href="{% url 'workout:index' %}">Home</a></li>
             <li class="navbar_color"><a href="#">Clients</a></li>
             <li class="navbar_color"><a href="#">Workouts</a></li>
             <li class="navbar_color"><a href="#">New Program</a></li>
@@ -38,7 +42,13 @@
         </ul>
     </div>
 </nav>
-
+{#{% if messages %}#}
+{#<ul class="messages">#}
+{#    {% for message in messages %}#}
+{#    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>#}
+{#    {% endfor %}#}
+{#</ul>#}
+{#{% endif %}#}
     <div class="container">
         {% block content %}
         {% endblock content %}

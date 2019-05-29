@@ -7,8 +7,7 @@
 
 {% load static %}
 
-
-<h1>Welcome to the Client creation page.</h1>
+<h1>Welcome to the Client Edit page.</h1>
     <p>If you would like to search for a specific client <a href="{% url 'workout:client_search' %}">
         Click Here</a></p><br>
 
@@ -20,49 +19,59 @@
     </ul>
 {% endif %}
 
-<form class="form-horizontal" action="/client_verify/" method="post">
+<form class="form-horizontal" action="/client_edit_verify/" method="post">
   {% csrf_token %}
+
+    <div class="form-group">
+            <input type="hidden" class="form-control" name="id"  value="{{ client.id }}">
+    </div>
     <div class="form-group">
         <label class="control-label col-sm-2" for="fname">First Name:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="fname" placeholder="Enter first name of client" >
+            <input type="text" class="form-control" name="fname" value="{{ client.fname }}">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" for="lname">Last Name:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="lname" placeholder="Enter last name of client">
+            <input type="text" class="form-control" name="lname" value="{{ client.lname }}">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" for="email">Email:</label>
         <div class="col-sm-10">
-            <input type="email" class="form-control" name="email" placeholder="Enter email of client">
+            <input type="email" class="form-control" name="email" value="{{ client.email }}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="phone">Phone:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="phone" value="{{ client.phone }}">
         </div>
     </div>
 
     <div class="form-group">
         <label class="control-label col-sm-2" for="address">Address:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="address" placeholder="Enter Address">
+            <input type="text" class="form-control" name="address" value="{{ client.address }}">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" for="city">City:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="city" placeholder="Enter City">
+            <input type="text" class="form-control" name="city" value="{{ client.city }}">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" for="state">State:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="state" placeholder="Enter State">
+            <input type="text" class="form-control" name="state" value="{{ client.state }}">
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" for="zip">Zip Code:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" name="zip" placeholder="Zip Code">
+            <input type="text" class="form-control" name="zip" value="{{ client.zip }}">
         </div>
     </div>
 
@@ -72,9 +81,9 @@
         </div>
     </div>
 </form>
-{%  if created_client %}
-    <p>Trainer is {{ trainers.fname }} {{ trainers.lname }}</p>
-    <p>Client is {{ created_client.fname }} {{ created_client.lname }}</p>
-    <p><a href="{% url 'workout:create_program.html' %}"><img src="{% static 'workout/images/button_create-new-workout.png' %}" alt="Create new workout schedule for client"></a> Start a workout schedule. </p>
-{% endif %}
+{#{%  if created_client %}#}
+{#    <p>Trainer is {{ trainers.fname }} {{ trainers.lname }}</p>#}
+{#    <p>Client is {{ created_client.fname }} {{ created_client.lname }}</p>#}
+{#    <p><a href="{% url 'workout:create_program.html' %}"><img src="{% static 'workout/images/button_create-new-workout.png' %}" alt="Create new workout schedule for client"></a> Start a workout schedule. </p>#}
+{#{% endif %}#}
 {% endblock content %}

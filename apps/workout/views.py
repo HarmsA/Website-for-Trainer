@@ -65,7 +65,8 @@ def create_client_form(request):
     context = {
         'trainers':current_trainer,
         'title': "Create Client",
-        'created_client': False
+        'created_client': False,
+
     }
     return render(request, 'workout/create_client_form.html', context)
 
@@ -84,8 +85,44 @@ def client_verify(request):
                 'created_client': created_client
             }
             return render(request, 'workout/create_client_form.html', context)
-
     return redirect("/create_client_form")
+
+def client_edit_verify(request):
+    if request.method=='POST':
+
+        try:
+            client = Client.objects.filter(id = request.POST['id'])
+        except ValueError:
+            return redirect('/create_client_form')
+        errors = Client.objects.clientValidation(request.POST, True)
+
+        if errors and errors:
+            for error in errors:
+                messages.error(request, error)
+        else:
+            if len(client)==1:
+                print(client[0].email)
+                Client.objects.filter(id=request.POST['id']).update(
+                    fname=request.POST['fname'],
+                    lname=request.POST['lname'],
+                    phone=request.POST['phone'],
+                    email=request.POST['email'],
+                    address=request.POST['address'],
+                    city=request.POST['city'],
+                    state=request.POST['state'],
+                    zip=request.POST['zip'],
+                )
+
+            return redirect('/client_search')
+    # messages.info(request,'Error in processing Client Update')
+    client = Client.objects.get(id=request.POST['id'])
+    context = {
+    'title': "Edit Client",
+    'client':client,
+    }
+    # messages.info(request, 'Error in processing Client Update')
+    return render(request, 'workout/edit_client.html', context)
+
 
 def client_search(request):
     if 'trainer_id' in request.session:
@@ -136,6 +173,7 @@ def client_name_search(request):
                 # print('lname', client)
         context = {
             'client':client,
+            'title': 'Client Search',
         }
         return render(request, 'workout/client_search.html', context)
 
@@ -143,12 +181,21 @@ def all_clients_search(request):
     client = Client.objects.all()
     context = {
         'client':client,
+        'title': 'Client Search',
     }
     return render(request, 'workout/client_search.html', context)
 
 
-def edit_client(request):
-    pass
+def edit_client(request, client_id):
+    client = Client.objects.get(id= client_id)
+    print(client.id)
+    print(client.fname)
+    print(client.lname)
+    context = {
+        'title': "Edit Client",
+        'client':client,
+    }
+    return render(request, 'workout/edit_client.html', context)
 
 def delete_client(request):
     pass
@@ -193,3 +240,4 @@ def delete_program(request):
 def logout(request):
     request.session.clear()
     return redirect('/index')
+

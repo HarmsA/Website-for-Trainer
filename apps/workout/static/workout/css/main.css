@@ -37,3 +37,6 @@
 .row img:hover{
     opacity: .95;
 }
+.trainer_column {
+    background-color: lightgrey;
+}

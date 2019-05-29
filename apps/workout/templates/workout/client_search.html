@@ -55,18 +55,20 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Start/view</th>
+            <th>Create/View/Edit</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tbody>
         {% for info in client %}
         <tr>
-            <td>{{ info.trainer.fname }}</td>
+            <td class="trainer_column">{{ info.trainer.fname }}</td>
             <td>{{ info.fname }}</td>
             <td>{{ info.lname }}</td>
             <td>{{ info.email }}</td>
             <td>{{ info.phone }}</td>
             <td><a href="{% url 'workout:create_program' info.id %}" class="btn btn-default">Workout</a></td>
+            <td><a href="{% url 'workout:edit_client' info.id %}" class="btn btn-default">edit {{ info.id }}</a></td>
         </tr>
         {% endfor %}
 {% endif %}
