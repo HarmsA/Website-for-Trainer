@@ -186,35 +186,79 @@ def all_clients_search(request):
     return render(request, 'workout/client_search.html', context)
 
 
-def edit_client(request, client_id):
+def edit_client(request, client_id):            #shows client to edit
     client = Client.objects.get(id= client_id)
-    print(client.id)
-    print(client.fname)
-    print(client.lname)
     context = {
         'title': "Edit Client",
         'client':client,
     }
     return render(request, 'workout/edit_client.html', context)
 
-def delete_client(request):
-    pass
+def delete_client(request, client_id):
+    del_client = Client.objects.get(id=client_id)
+    del_name = del_client.fname +' ' +  del_client.lname
+    del_client.delete()
+    errors=[]
+    errors.append(f'{del_name} was deleted')
+    if errors and errors:
+        for error in errors:
+            messages.error(request, error)
+    context = {
+        'title': 'Client Search',
+    }
+    return render(request, 'workout/client_search.html', context)
+
 
 # ---------Workout----------------
-def create_workout(request):
+def create_workout(request, client_id):
     context = {
         'title': 'Create Workout'
     }
     return render(request, 'workout/create_workout.html', context)
 
 
+def workout_search_form(request):
+    context = {
+        'title': 'Workout Search'
+    }
+    return render(request, 'workout/workout_search.html', context)
+
 def workout_search(request):
+    if request.method!="POST":
+        return redirect('/workout_search_form')
+    context = {
+        'workout' : 'workouts'
+    }
+    if request.POST['name_of_workout']:
+        wname = Workout.objects.filter(name_of_workout__startswith=request.POST['name_of_workout'])
+        context = {
+            'workout': wname
+        }
+        return render(request, 'workout/workout_search.html', context)
+    if request.POST['muscle_group']:
+        mg = Workout.objects.filter(muscle_group__startswith=request.POST['muscle_group'])
+        context = {
+            'workout': mg
+        }
+        print('In Muscle group')
+        print(mg)
+        return render(request, 'workout/workout_search.html', context)
+    if request.POST['body_part']:
+        bp = Workout.objects.filter(body_part__icontains=request.POST['body_part'].capitol())
+        context = {
+            'workout': bp
+        }
+        return render(request, 'workout/workout_search.html', context)
+    return render(request, 'workout/workout_search.html', context)
+
+
+def all_workout_search(request):
     pass
 
 def workout_verify(request):
     pass
 
-def edit_workout(request):
+def edit_workout(request, id):
     pass
 
 def delete_workout(request):

@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'^all_clients_search/$', views.all_clients_search, name='all_clients_search'),
 
     url(r'^client_name_search/$', views.client_name_search, name='client_name_search'),
-    url(r'^delete_client/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.delete_client, name='delete_client'),
+    url(r'^delete_client/(?P<client_id>\d)/$', views.delete_client, name='delete_client'),
     url(r'^edit_client/(?P<client_id>\d)/$', views.edit_client, name='edit_client'),
     url(r'^client_edit_verify/$', views.client_edit_verify, name='client_edit_verify'),
 
@@ -24,9 +24,11 @@ urlpatterns = [
     url(r'^delete_program/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.create_program, name='create_program'),
     url(r'^edit_program/(?P<trainer_id>\d)/(?P<client_id>\d)/$', views.create_program, name='create_program'),
 
-    url(r'^create_workout/$', views.create_workout, name='create_workout'),
+    url(r'^create_workout/(?P<client_id>\d)/$', views.create_workout, name='create_workout'),
     url(r'^workout_verify/$', views.workout_verify, name='workout_verify'),
+    url(r'^workout_search_form/$', views.workout_search_form, name='workout_search_form'),
     url(r'^workout_search/$', views.workout_search, name='workout_search'),
-    url(r'^delete_workout/$', views.delete_workout, name='delete_workout'),
-    url(r'^edit_workout/$', views.edit_workout, name='edit_workout'),
+    url(r'^all_workout_search/$', views.all_workout_search, name='all_workout_search'),
+    url(r'^delete_workout/(?P<workout_id>)/$', views.delete_workout, name='delete_workout'),
+    url(r'^edit_workout/(?P<workout_id>)/$', views.edit_workout, name='edit_workout'),
 ]

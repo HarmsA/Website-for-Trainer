@@ -57,6 +57,7 @@
             <th>Phone</th>
             <th>Create/View/Edit</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -67,8 +68,9 @@
             <td>{{ info.lname }}</td>
             <td>{{ info.email }}</td>
             <td>{{ info.phone }}</td>
-            <td><a href="{% url 'workout:create_program' info.id %}" class="btn btn-default">Workout</a></td>
-            <td><a href="{% url 'workout:edit_client' info.id %}" class="btn btn-default">edit {{ info.id }}</a></td>
+            <td><a href="{% url 'workout:create_program' info.id %}" class="btn btn-default">Create Workout</a></td>
+            <td><a href="{% url 'workout:edit_client' info.id %}" class="btn btn-default">Edit</a></td>
+            <td><a href="{% url 'workout:delete_client' info.id %}" class="btn btn-danger">Delete</a></td>
         </tr>
         {% endfor %}
 {% endif %}

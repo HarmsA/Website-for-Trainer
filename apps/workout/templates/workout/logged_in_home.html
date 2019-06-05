@@ -15,11 +15,11 @@
 <body>
 
 <div class="row">
-    <div class="col-sm-6"><a href="{% url 'workout:create_workout' %}"><img src="{% static 'workout/images/button_create-new-workout.png' %}"></a></div>
+    <div class="col-sm-6"><a href="{% url 'workout:client_search'  %}"><img src="{% static 'workout/images/button_create-new-workout.png' %}"></a></div>
     <div class="col-sm-6"><a href="{% url 'workout:create_client_form' %}"><img src="{% static 'workout/images/button_create-new-client.png' %}"></a></div>
 </div>
 <div class="row">
-    <div class="col-sm-6"><img src="{% static 'workout/images/button_search-for-workout.png' %}"></div>
+    <div class="col-sm-6"><a href="{% url 'workout:workout_search_form' %}"><img src="{% static 'workout/images/button_search-for-workout.png' %}"></a></div>
     <div class="col-sm-6"><a href="{% url 'workout:client_search' %}"><img src="{% static 'workout/images/button_search-for-client.png' %}"></a></div>
 </div>
 <div class="row">
